@@ -248,7 +248,7 @@
       window.BioferiaSlide8.stop();
       if(slides[i].querySelector(".s8-sequence")) window.BioferiaSlide8.start(slides[i]);
     }
-    slides.forEach(function(s,k){
+    var _mf=function(s,k){
       var on=(k===i); stopPhaseB(s);
       s.classList.remove('stories-on'); clearTimeout(s._rv); clearTimeout(s._ab);
       if(on){ var am=s.querySelector('[data-after-ms]'); if(am) s._ab=setTimeout(function(){ if(slides[cur]===s) revealAfter(s); },parseInt(am.dataset.afterMs,10)); }
@@ -614,7 +614,8 @@
       });
       [].forEach.call(s.querySelectorAll('.cnt-n'),function(el){ if(on) runCount(el); else el._on=false; });
       if(on) runMontage(s); else s.classList.remove('fin-on');
-    });
+    };
+    slides.forEach(function(s,k){ if(k!==i&&s.classList.contains('out')){ clearTimeout(s._fz); s._fz=setTimeout(function(){ if(cur!==k) _mf(s,k); },900); return; } clearTimeout(s._fz); _mf(s,k); });   /* la pantalla que se va se queda tal cual mientras dura la transición (si no, volvía a mostrarse su estado inicial) */
     var has=slides[i].querySelector('video.av[data-snd]');
     mute.classList.toggle('show',!!has&&has.dataset.hideSound!=='1');
     if(has) mute.textContent=has.muted?'🔇 M · activar sonido':'🔊 M · silenciar';
