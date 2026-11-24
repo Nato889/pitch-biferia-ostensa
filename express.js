@@ -333,6 +333,17 @@
         }else if(f.getAttribute('src')&&f.getAttribute('src')!=='about:blank'){ f.onload=null; f.setAttribute('src','about:blank'); }
       });
       /* juego en vivo (pantalla interactiva): se carga al entrar, toma el foco para que la barra espaciadora funcione, y se descarga al salir */
+      /* música de fondo de una pantalla (audio.bgm): suena bajito mientras la pantalla está activa */
+      [].forEach.call(s.querySelectorAll('audio.bgm'),function(au){
+        clearInterval(au._fd);
+        if(on){
+          if(!au.getAttribute('src')) au.setAttribute('src',au.dataset.src);
+          au.loop=true; au.volume=0; try{au.currentTime=0;}catch(e){}
+          var pp=au.play(); if(pp&&pp.catch) pp.catch(function(){});
+          var tv=Math.min(1,Math.max(0,parseFloat(au.dataset.vol)||.2));
+          au._fd=setInterval(function(){ if(au.volume<tv-.01) au.volume=Math.min(tv,au.volume+.02); else clearInterval(au._fd); },100);
+        }else{ au.pause(); }
+      });
       [].forEach.call(s.querySelectorAll('iframe.live'),function(f){
         clearTimeout(f._lv);
         if(on){

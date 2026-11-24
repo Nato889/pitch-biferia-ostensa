@@ -398,7 +398,6 @@ body.nologo #hud img{visibility:hidden}
 
 /* el librito: primero el video de la impresión; al terminar entra el mockup con sus piezas */
 .slide:not(.after) .bleed.ph2b,.slide:not(.after) .ph2{display:none}
-.slide.after .bleed.ph1{display:none}
 /*LIBRO-ANA-START*/
 .libro{position:absolute;perspective:1800px}
 .libro .bk{position:absolute;inset:0;opacity:0;transform-origin:50% 50%}
@@ -485,7 +484,6 @@ body.nologo #hud img{visibility:hidden}
 .libro .bk .cutline path{fill:none;stroke:#e03a24;stroke-width:3;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:1;stroke-dashoffset:1;opacity:0}
 .libro .bk .sc{position:absolute;left:0;top:0;width:70px;height:44px;offset-rotate:auto;offset-anchor:30% 50%;opacity:0;pointer-events:none;filter:drop-shadow(2px 3px 2px rgba(0,0,0,.35))}
 .flap.f-tl{transform-origin:0 50%}.flap.f-bl{transform-origin:0 50%}.flap.f-tr{transform-origin:100% 50%}.flap.f-br{transform-origin:100% 50%}
-.slide.after .ph1,.slide.after .bleed.ph1b{display:none}
 @keyframes lf1{0%,3.256%{opacity:0;transform:rotateY(0deg)}3.353%{opacity:1;transform:rotateY(0deg)}4.713%{opacity:1;transform:rotateY(-178deg)}4.762%,100%{opacity:0;transform:rotateY(-178deg)}}.slide.on .libro .lf1{animation:lf1 20.58s ease-in-out both}
 @keyframes lf2{0%,5.053%{opacity:0;transform:rotateY(0deg)}5.151%{opacity:1;transform:rotateY(0deg)}6.511%{opacity:1;transform:rotateY(-178deg)}6.56%,100%{opacity:0;transform:rotateY(-178deg)}}.slide.on .libro .lf2{animation:lf2 20.58s ease-in-out both}
 @keyframes lf3{0%,9.913%{opacity:0;transform:rotateY(0deg)}10.01%{opacity:1;transform:rotateY(0deg)}11.37%{opacity:1;transform:rotateY(-178deg)}11.419%,100%{opacity:0;transform:rotateY(-178deg)}}.slide.on .libro .lf3{animation:lf3 20.58s ease-in-out both}

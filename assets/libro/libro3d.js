@@ -52,7 +52,7 @@
   function loop(now){
     raf=requestAnimationFrame(loop);
     if(window.__libroFrozen) return;
-    var on=slide&&slide.classList.contains('on')&&!slide.classList.contains('after');
+    var on=slide&&slide.classList.contains('on');
     if(!on){ t0=null; return; }
     if(t0===null) t0=now;
     var t=(now-t0)/1000; if(t>CFG.lt) t=CFG.lt;
