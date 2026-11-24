@@ -1,0 +1,59 @@
+/* Shared geometry for section headings and navigation, regardless of content length. */
+/* The interactive map is a viewport; the other sections remain normal pages. */
+body.map-viewport{height:100dvh;overflow:hidden}
+.screen.map-interactive-page{height:100dvh;min-height:0;display:flex;flex-direction:column;padding-bottom:calc(96px + env(safe-area-inset-bottom))}
+.map-interactive-page>.topbar,.map-interactive-page>.map-heading,.map-interactive-page>.map-tabs{flex-shrink:0}
+.map-interactive-page>.topbar{margin-bottom:0}
+.map-interactive-page .fair-map-wrap{flex:1;min-height:0;margin-top:0;margin-bottom:0;padding-top:50px}
+.map-interactive-page .fair-map-scroll{height:100%;scrollbar-width:none;border-bottom:0}
+.map-interactive-page .fair-map-scroll::-webkit-scrollbar{display:none}
+.map-interactive-page .map-popover{position:absolute;left:12px;right:12px;bottom:12px;z-index:8;max-height:calc(100% - 64px);overflow:auto;overscroll-behavior:contain;box-shadow:0 8px 28px #0005;gap:8px;padding:16px;animation:appear .18s ease-out}
+.map-popover h2{padding-right:40px;font-size:25px;line-height:28px}
+.map-popover p{font-size:15px;line-height:19px}
+.map-popover-close{position:absolute;right:8px;top:8px;display:grid;place-items:center;width:44px;height:44px;border:0;border-radius:50%;background:#ffffff1c;color:inherit;font-family:Arial,sans-serif;font-size:30px;line-height:1;cursor:pointer}
+.map-popover-services{display:flex;align-items:center;justify-content:center;min-height:36px;text-decoration:underline;text-underline-offset:3px;font-size:15px}
+.map-popover .map-point-options{gap:6px}
+.map-popover .map-point-options button{padding:8px 10px;font-size:14px}
+@media(min-width:700px){.screen.map-interactive-page{height:calc(100dvh - 48px);padding-bottom:84px}}
+@media(max-height:700px){
+ .screen.map-interactive-page>.map-heading{min-height:0;font-size:26px;line-height:30px;margin:4px 0 12px}
+ .map-interactive-page>.map-heading br{display:none}
+ .map-interactive-page>.topbar{margin-bottom:0}
+ .screen.map-interactive-page>.map-tabs{margin-bottom:8px}
+ .map-interactive-page .map-popover{padding:12px;bottom:8px;max-height:calc(100% - 58px)}
+}
+html{scrollbar-gutter:stable}
+:root{--section-heading-size:32px;--section-highlight-size:44px;--section-heading-height:88.08px;--hero-title-size:38px;--hero-title-line:42px;--hero-highlight-size:64px;--content-inset:24px}
+.screen>.title{margin:15px 0 24px}
+.screen>.title.compact h1{font-size:var(--section-heading-size);line-height:1.05;min-height:var(--section-heading-height)}
+.screen>.title.compact .hand{font-size:var(--section-highlight-size);line-height:1.17}
+.screen>.map-heading{font-size:var(--section-heading-size);line-height:1.05;min-height:var(--section-heading-height);margin:15px 0 24px}
+.screen>.map-heading .hand{font-size:var(--section-highlight-size);line-height:1.17}
+.screen>.map-tabs{margin-bottom:18px}
+.sector-hero,.charlas-hero{height:350px}
+.screen .sector-hero h1,.screen .charlas-hero h1{position:absolute;top:auto;bottom:40px;left:var(--content-inset);right:var(--content-inset);margin:0;font-size:var(--hero-title-size);line-height:var(--hero-title-line)}
+.screen .sector-hero h1 .hand,.screen .charlas-hero h1 .hand{font-size:var(--hero-highlight-size);line-height:1.05;white-space:normal}
+.quiz-tags,.quiz-progress{min-height:44px;margin:12px 0 15px;align-items:center}
+@media(max-width:359px){
+ :root{--section-heading-size:29px;--section-highlight-size:39px;--section-heading-height:79.08px;--hero-title-size:32px;--hero-title-line:36px;--hero-highlight-size:54px;--content-inset:18px}
+}
+.quiz-comparison-screen .comparison-question{font-size:24px;line-height:1.15;margin:18px 0 12px}
+.comparison-demo{font-size:14px;line-height:1.35;color:var(--ink);margin-bottom:20px}
+.quiz-comparison{display:grid;grid-template-columns:1fr 1fr;gap:12px;align-items:start}
+.quiz-comparison section{min-width:0}
+.quiz-comparison h2{font-size:19px;line-height:1.2;margin:0 0 10px}
+.quiz-comparison ul{list-style:none;padding:0;margin:0;display:grid;gap:10px}
+.comparison-card{border-radius:18px;background:#fff;padding:16px;border:1px solid #332e3420}
+.comparison-card p{font-size:18px;line-height:1.25;font-weight:600;margin:0;overflow-wrap:break-word}
+.comparison-card-own{background:var(--coral);color:var(--paper);border-color:var(--coral)}
+.comparison-closing{font-size:20px;font-weight:600;line-height:1.25;margin:22px 0}
+
+.law-list{display:grid;gap:12px;margin:6px 0 22px}
+.law-card{border-radius:18px;background:#fff;padding:16px;border:1px solid #332e3420;display:grid;gap:9px}
+.law-top{display:flex;align-items:center;justify-content:space-between;gap:10px}.law-top h3{margin:0;font-size:22px;line-height:1}.law-top span{font-size:13px;font-weight:700;color:var(--coral);letter-spacing:.04em;text-transform:uppercase}
+.law-card i{display:block;height:11px;border-radius:6px;background:#332e3416}.law-card i.s{width:62%}
+.op-list{display:grid;gap:12px;margin:6px 0 4px}
+.op-row{border-radius:18px;background:#fff;padding:14px 16px;border:1px solid #332e3420;display:grid;grid-template-columns:1fr auto;gap:8px 12px;align-items:center}
+.op-row p{grid-column:1/3;margin:0;font-size:18px;line-height:1.2;font-weight:600}.op-row p em{font-style:normal;font-size:12px;font-weight:700;color:var(--paper);background:var(--coral);border-radius:20px;padding:3px 9px;margin-left:6px;vertical-align:2px}
+.op-bar{height:14px;border-radius:8px;background:#332e3416;overflow:hidden}.op-bar i{display:block;height:100%;background:#332e34;border-radius:8px}.op-row.mine{border-color:var(--coral)}.op-row.mine .op-bar i{background:var(--coral)}
+.op-row b{font-size:18px}

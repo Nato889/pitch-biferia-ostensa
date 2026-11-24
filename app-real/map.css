@@ -1,0 +1,114 @@
+.map-picto{display:block;width:28px;height:28px;object-fit:contain;filter:brightness(0)}
+.map-heading{font-size:56px;line-height:1.02;margin:14px 0 24px;letter-spacing:-.6px}.map-heading .hand{font-size:1.2em}.map-intro{font-size:14px;line-height:20px;margin:0 0 18px}
+.map-tabs{display:flex;border:1px solid currentColor;border-radius:24px;overflow:hidden;max-width:342px;margin:0 0 18px}.map-tabs a{flex:1;min-height:40px;display:grid;place-items:center;font-size:16px;padding:6px 12px}.map-tabs a[aria-current=page]{background:var(--blue);color:var(--paper);border-radius:24px;font-weight:600}.map-layers{display:flex;gap:14px;margin:8px 0 0;font-size:14px}.map-layers a{padding:4px 0}.map-layers a[aria-current]{text-decoration:underline;text-underline-offset:5px;font-weight:600}
+.fair-map-wrap{height:300px;position:relative;margin:8px -24px 14px}.fair-map-scroll{width:100%;height:100%;overflow:auto;overscroll-behavior:contain;scrollbar-width:thin;display:flex;align-items:center}.fair-map-world{position:relative;aspect-ratio:741 / 445.64856;width:100%;flex:none;isolation:isolate}.fair-map-world.is-zoomed{width:741px;align-self:flex-start}.fair-map-base{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;opacity:.38;pointer-events:none}.map-point{position:absolute;width:44px;height:44px;transform:translate(-50%,-50%);display:grid;place-items:center;background:none;border:0;padding:0;z-index:1;isolation:isolate}.map-marker-art{width:34px;height:34px;display:grid;place-items:center;background:var(--outline) center/contain no-repeat;opacity:.65}.map-marker-art .map-picto{width:22px;height:22px}.map-point:hover .map-marker-art,.map-point:focus-visible .map-marker-art{opacity:1}.map-point:focus-visible{outline:2px solid var(--blue);outline-offset:3px;border-radius:8px}.map-point.is-selected{z-index:4;width:56px;height:56px}.map-point.is-selected .map-marker-art{width:54px;height:55px;background: url('./assets/marker-selected.svg') center/contain no-repeat;transform:rotate(5deg);opacity:1}.map-point.is-selected .map-picto{width:24px;height:24px}.map-marker-label{position:absolute;bottom:calc(100% + 2px);left:50%;transform:translateX(-50%);background:var(--ink);color:var(--paper);border-radius:8px;font-size:12px;line-height:17px;white-space:nowrap;padding:0 6px}.map-zoom-controls{position:absolute;right:14px;bottom:16px;display:grid;gap:6px;z-index:6}.map-zoom-controls button{width:44px;height:44px;border:1px solid var(--ink);background:var(--paper);color:var(--ink);border-radius:50%;font-size:28px;line-height:1}.map-zoom-controls button:disabled{opacity:.4}.map-selection{border-radius:24px;padding:16px 14px;background:white;display:grid;gap:14px}.map-selection h2{font-size:28px;line-height:32px}.map-selection p{font-size:14px;line-height:18px}.map-selection.has-selection{background:var(--blue);color:white}.map-selection .button{margin-top:4px}.area-list{display:grid;gap:12px}.area-list .map-picto{margin:0 10px 0 0;flex:none}.area-list .space-row{background:white}.area-list .space-row h3{font-size:24px}.area-list .space-row p{font-size:14px}
+.services-page{overflow:hidden}.services-lines{position:absolute;width:650px;height:490px;max-width:none;left:auto;right:-180px;top:-222px;transform:rotate(15.62deg);object-fit:contain;pointer-events:none;z-index:-1}.service-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px 6px;margin:0 -8px 16px}.service-tile{min-width:0;position:relative;height:136px;background:var(--paper);color:var(--ink);border-radius:16px;padding:20px 16px 10px;overflow:hidden;isolation:isolate;display:flex;flex-direction:column;justify-content:space-between}.service-tile.blue{background:var(--blue);color:white}.service-tile .map-picto{margin:4px 8px}.service-tile.blue .map-picto{filter:brightness(0) invert(1)}.service-tile h2{font-size:24px;line-height:28px;white-space:nowrap}.tile-arrow{position:absolute;right:12px;top:12px;font-weight:700;font-size:24px}.service-bottle{position:absolute;right:0;top:0;width:109px;height:136px;object-fit:contain;z-index:-2}.bottle-shade{position:absolute;right:20px;top:0;width:90px;height:100%;background:linear-gradient(90deg,var(--blue),transparent);z-index:-1}.services-page>.button{margin-bottom:14px}
+.sector-page{padding-top:0}.sector-hero{position:relative;isolation:isolate;height:360px;margin:0 -24px;color:var(--paper);padding:18px 24px 0;overflow:hidden}.sector-photo{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-3}.sector-hero::before{content:'';position:absolute;inset:0;background:linear-gradient(#0000000a,#0d080d8c);z-index:-2}.sector-hero h1{position:absolute;left:24px;top:202px;font-size:40px;line-height:42px}.sector-hero h1 .hand{color:var(--paper);font-size:78px;line-height:1.13;white-space:nowrap}.sector-sheet{position:relative;background:var(--paper);border-radius:28px 28px 0 0;padding:26px 0 0;margin:-6px -4px 0}.sector-switch{position:absolute;left:50%;top:-22px;transform:translateX(-50%);width:284px;max-width:95%;height:40px;border:1px solid var(--ink);background:var(--paper);border-radius:24px;display:flex;overflow:hidden}.sector-switch a{flex:1;display:grid;place-items:center;font-size:14px}.sector-switch a[aria-current=page]{flex:1.4;background:var(--blue);color:white;border-radius:24px;font-size:16px;font-weight:600}.sector-mini-map{height:144px;display:flex;align-items:center;justify-content:center;position:relative;background:white;border-radius:20px;overflow:hidden;margin-bottom:12px}.sector-mini-map .fair-map-world{width:226px;height:136px;aspect-ratio:auto}.sector-mini-map .map-point{width:16px;height:16px;pointer-events:none}.sector-mini-map .map-marker-art{width:15px;height:15px}.sector-mini-map .map-picto{width:10px;height:10px}.sector-mini-map .map-point.is-selected{width:28px;height:28px}.sector-mini-map .map-point.is-selected .map-marker-art{width:28px;height:29px}.sector-mini-map .map-point.is-selected .map-picto{width:15px;height:15px}.sector-mini-map .map-marker-label{font-size:7px;line-height:10px;padding:0 3px;bottom:100%}.sector-mini-map.large{height:207px}.sector-mini-map.large .fair-map-world{width:100%;height:auto;aspect-ratio:741/445.64856}.sector-mini-map.large .map-point.is-selected{width:44px;height:44px}.sector-mini-map.large .map-point.is-selected .map-marker-art{width:42px;height:43px}.sector-mini-map.large .map-point.is-selected .map-picto{width:22px;height:22px}.sector-mini-map.large .map-marker-label{font-size:12px;line-height:17px;padding:0 6px}.sector-card{background:white;padding:14px;border-radius:20px;display:grid;gap:12px}.sector-card h2{font-size:20px;line-height:24px}.sector-card p{font-size:14px;line-height:18px}.food-options{display:flex;gap:6px;margin:4px 0 0}.food-options span{background:var(--paper);flex:1;text-align:center;border-radius:18px;padding:8px 5px;font-size:12px}.sector-text-link{display:block;color:var(--blue);font-size:14px;text-align:center;padding:2px 0 0}.water-mesh{position:absolute;width:533px;height:400px;left:-220px;top:-26px;object-fit:contain;opacity:.7;z-index:-1;pointer-events:none}.water-page .sector-hero h1{top:190px}.water-page .hand{font-size:78px}.water-sheet{position:relative;margin:-42px -6px 0}.water-label{display:flex;align-items:center;gap:12px;background:var(--blue);color:white;border-radius:20px;padding:9px 12px;min-height:64px}.water-label>span,.info-symbol{width:46px;height:46px;border-radius:50%;background:var(--paper);display:grid;place-items:center;flex:none}.water-label h2{font-size:28px;line-height:32px}.water-sheet>p{font-size:16px;line-height:20px;margin:12px 6px 36px}.water-sheet>.button{margin:0 6px}
+.info-page{overflow:hidden}.info-decoration{position:absolute;inset:0;pointer-events:none;z-index:-1;overflow:hidden;opacity:.22}.info-decoration img{display:block;width:100%;height:100%;object-fit:cover;object-position:center;max-width:none}.info-photo{position:relative;margin:26px -6px 14px;height:210px;border-radius:24px;overflow:hidden}.info-photo>img{width:100%;height:100%;object-fit:cover}.info-photo figcaption{position:absolute;left:12px;top:14px;background:var(--coral);color:white;border-radius:16px;padding:7px 10px;font-size:12px}.venue-name{font-size:28px;line-height:32px}.venue-location{font-size:14px;margin:12px 0 18px}.info-card{background:var(--blue);color:white;border-radius:22px;margin:0 -6px;padding:14px;display:grid;grid-template-columns:46px 1fr;gap:14px 12px;position:relative;overflow:hidden}.info-card::before{content:'';position:absolute;right:0;top:0;width:90px;height:90px;background:url('./assets/dots.webp') center/contain no-repeat;opacity:.6}.info-card h2{font-size:20px;line-height:24px}.info-card p{font-size:14px;line-height:18px;margin-top:5px}.info-card .button{grid-column:1/-1}.info-page>.sector-text-link{font-size:16px;margin-top:14px;text-align:left}.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+@media(max-width:359px){.map-heading{font-size:46px}.service-tile{padding-left:12px;padding-right:10px}.service-tile h2{font-size:20px}.fair-map-wrap{margin-left:-18px;margin-right:-18px}.sector-hero{margin-left:-18px;margin-right:-18px;padding-left:18px;padding-right:18px}.sector-hero h1{left:18px;font-size:34px}.sector-hero h1 .hand{font-size:65px}.water-label{gap:8px;padding:9px}.water-label h2{font-size:23px;line-height:27px}.info-page .map-heading{font-size:45px}.sector-card h2{font-size:19px}}
+
+.place-icon,.pic{filter:brightness(0)}
+
+/* Complete catalogue, visible together in both map sizes. */
+.map-key{font-size:14px;margin:0 0 8px;color:var(--ink)}
+.fair-map-world:not(.is-zoomed)>.map-point:not(.is-selected){width:28px;height:28px}
+.fair-map-world:not(.is-zoomed)>.map-point:not(.is-selected) .map-marker-art{width:24px;height:24px;opacity:.9}
+.fair-map-world:not(.is-zoomed)>.map-point:not(.is-selected) .map-picto{width:16px;height:16px}
+.fair-map-world.is-zoomed>.map-point:not(.is-selected) .map-marker-art{width:36px;height:36px;opacity:.9}
+.fair-map-world.is-zoomed>.map-point:not(.is-selected) .map-picto{width:25px;height:25px}
+.service-tile h2{white-space:normal;font-size:22px;line-height:25px}
+.map-signs{margin:24px 0}.map-signs>h2{font-size:24px;margin-bottom:12px}.map-signs .space-row{background:var(--paper);color:var(--ink);gap:12px;margin-bottom:10px}.map-signs .space-row>span:last-child{margin-left:auto}
+.sector-mini-map .fair-map-world>.map-point:not(.is-selected){width:16px;height:16px}.sector-mini-map .fair-map-world>.map-point:not(.is-selected) .map-marker-art{width:11px;height:11px;opacity:.4}.sector-mini-map .fair-map-world>.map-point:not(.is-selected) .map-picto{width:8px;height:8px}
+@media(max-width:359px){.service-tile h2{font-size:19px;line-height:23px}.map-key{font-size:12px}}
+/* Zoom controls have their own strip, leaving every overview point unobstructed. */
+.fair-map-wrap{padding-top:50px}.fair-map-scroll{height:250px}.map-zoom-controls{top:2px;bottom:auto;display:flex}
+.map-point.label-left .map-marker-label{left:auto;right:0;transform:none}.map-point.label-right .map-marker-label{left:0;transform:none}
+@media(max-width:359px){.fair-map-world:not(.is-zoomed)>.map-point:not(.is-selected) .map-marker-art{width:20px;height:20px}.fair-map-world:not(.is-zoomed)>.map-point:not(.is-selected) .map-picto{width:14px;height:14px}}
+
+/* Mobile map: large touch targets at both zoom levels; native momentum scrolling. */
+.map-page .map-heading,.services-page .map-heading{font-size:42px;margin:10px 0 18px}
+.map-page .fair-map-wrap{height:auto;padding-top:50px}
+.map-page .fair-map-scroll{height:clamp(340px,53svh,460px);display:block;touch-action:pan-x pan-y;overscroll-behavior:contain;-webkit-overflow-scrolling:touch;cursor:grab;user-select:none;background:#e5e3d8;border-top:1px solid #332e3426;border-bottom:1px solid #332e3426}
+.map-page .fair-map-scroll.is-dragging{cursor:grabbing}
+.map-page .fair-map-world{width:900px;height:541.274px;aspect-ratio:auto}
+.map-page .fair-map-world.is-zoomed{width:1300px;height:781.84px}
+.map-page .fair-map-scroll .fair-map-world .map-point:not(.is-selected){width:48px;height:48px;cursor:inherit;touch-action:pan-x pan-y}
+.map-page .fair-map-scroll .fair-map-world .map-point:not(.is-selected) .map-marker-art{width:46px;height:46px;opacity:1}
+.map-page .fair-map-scroll .fair-map-world .map-point:not(.is-selected) .map-picto{width:32px;height:32px}
+.map-page .fair-map-scroll .map-point.is-selected{width:58px;height:58px;cursor:inherit;touch-action:pan-x pan-y}
+.map-page .fair-map-scroll .map-point.is-selected .map-marker-art{width:58px;height:58px}
+.map-page .fair-map-scroll .map-point.is-selected .map-picto{width:34px;height:34px}
+.map-page .fair-map-scroll .map-picto{pointer-events:none}
+.map-page .map-marker-label{font-size:14px;line-height:20px}
+.map-drag-hint{position:absolute;top:14px;left:18px;font-size:14px}
+.map-caption{font-size:14px;line-height:20px;margin-top:12px}
+
+/* Pointer gestures own only the map; the surrounding page keeps normal browser gestures. */
+.map-page .fair-map-scroll,.map-page .fair-map-scroll .map-point{touch-action:none}
+.map-page .fair-map-scroll .fair-map-world .map-point:not(.is-selected){touch-action:none}
+.map-drag-hint{font-size:12px;max-width:calc(100% - 130px);line-height:16px;top:16px}
+.place-detail-hero{height:350px}
+.place-detail-hero::before{background:linear-gradient(180deg,#0009 0%,#0000 42%,#0009 100%)}
+.place-detail-hero h1{top:auto;bottom:40px;font-size:38px;line-height:42px;right:18px}
+.place-detail-hero h1 .hand{font-size:64px;line-height:1.05;white-space:normal}
+.place-detail-sheet{position:relative;margin:-20px -6px 0;padding:16px 12px 0;background:var(--paper);border-radius:24px 24px 0 0}
+.place-detail-label{display:flex;align-items:center;gap:12px;background:var(--blue);color:var(--paper);padding:12px;border-radius:18px;margin-bottom:20px}
+.place-detail-label>span{display:grid;place-items:center;flex:none;width:48px;height:48px;border-radius:50%;background:var(--paper)}
+.place-detail-label h2{font-size:28px;line-height:30px}
+.place-detail-label .map-picto{width:30px;height:30px}
+.place-detail-intro{font-size:22px;line-height:27px;font-weight:600;margin-bottom:12px}
+.place-detail-sheet>p:not(.place-detail-intro){line-height:23px}
+.place-detail-location{margin:26px 0 20px;display:grid;gap:12px}
+.place-detail-location h3,.place-detail-sheet .sector-card h3{font-size:23px}
+.place-detail-location .sector-mini-map{margin:0}
+.place-detail-location>p{font-size:15px;line-height:20px}
+.place-detail-sheet ul{padding-left:20px;font-size:16px;line-height:23px;display:grid;gap:8px}
+.place-detail-activities{margin-top:28px}.place-detail-activities>h2{font-size:25px;margin-bottom:14px}
+.place-detail-activities .activity{grid-template-columns:82px minmax(0,1fr)}
+.place-photo-note{font-size:12px!important;line-height:16px!important;margin:18px 0 0}
+@media(max-width:359px){.place-detail-hero h1{font-size:32px;line-height:36px}.place-detail-hero h1 .hand{font-size:54px}.place-detail-label h2{font-size:24px;line-height:27px}.place-detail-sheet{padding-left:8px;padding-right:8px}}
+
+/* Editorial source: same map frame, exact point coordinates, exact tile colours. */
+.fair-map-world{aspect-ratio:1}
+.map-page .fair-map-world{height:900px}
+.map-page .fair-map-world.is-zoomed{height:1300px}
+.map-page .fair-map-scroll{background:#FEFEF6}
+.fair-map-base{opacity:1}
+.fair-map-world .map-point .map-marker-art{background:var(--point-tile) center/contain no-repeat!important;opacity:1!important;transform:none!important}
+.fair-map-world .map-point .map-picto{filter:var(--point-filter)}
+.map-page .fair-map-scroll .fair-map-world .map-point .map-marker-art{width:60px;height:60px}
+.map-page .fair-map-scroll .fair-map-world .map-point .map-picto{width:30px;height:30px}
+.map-page .fair-map-scroll .fair-map-world .map-point.is-selected .map-marker-art{transform:scale(1.1)!important;filter:drop-shadow(0 0 2px #fff) drop-shadow(0 0 2px #332e34)}
+.map-page .map-selection.has-selection{background:var(--selection-color);color:var(--selection-text)}
+.sector-mini-map .fair-map-world{width:auto;height:100%;aspect-ratio:1}
+.sector-mini-map{height:175px}
+.sector-mini-map.large{height:230px}
+.sector-mini-map.large .fair-map-world{width:auto;height:100%;aspect-ratio:1}
+.sector-mini-map .fair-map-world .map-point:not(.is-selected) .map-marker-art{opacity:.75!important}
+.sector-mini-map .fair-map-world .map-point.is-selected .map-marker-art{filter:drop-shadow(0 0 1px #fff) drop-shadow(0 0 1px #332e34)}
+.map-point-options{display:flex;flex-wrap:wrap;gap:8px}
+.map-point-options button{background:transparent;color:inherit;border:1px solid currentColor;border-radius:20px;padding:10px 14px;min-height:44px;font:inherit}
+.map-point-options button[aria-pressed=true]{background:#F0EEE4;color:#332E34;box-shadow:0 0 0 2px currentColor}
+.place-point-links{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.place-point-links .button{font-size:16px;padding:12px 8px;min-height:48px}
+.location-pending{margin:24px 0}
+
+/* More breathing room around the original, undistorted pictograms. At
+   overview zoom the art shrinks with the map, while touch targets stay 48px. */
+.map-page .fair-map-scroll .fair-map-world .map-point .map-marker-art{width:calc(56px * var(--marker-scale,1))!important;height:calc(56px * var(--marker-scale,1))!important;max-width:none;place-self:center}
+.map-page .fair-map-scroll .fair-map-world .map-point .map-picto{width:calc(26px * var(--marker-scale,1))!important;height:calc(26px * var(--marker-scale,1))!important;object-fit:contain;max-width:none}
+.map-page .fair-map-scroll .fair-map-world .map-point.is-selected .map-marker-art{transform:none!important;filter:drop-shadow(0 0 2px #fff) drop-shadow(0 0 2px #332e34)}
+
+/* Material vectors have a shared 24px box; centering is independent of font metrics. */
+.ui-icon{display:block;flex:none;width:24px;height:24px;fill:currentColor;stroke:none;pointer-events:none}
+.topbar .back{width:44px;min-width:44px;height:44px;display:grid;place-items:center;padding:0;line-height:0}
+.topbar .back .ui-icon,.nav .ui-icon{width:24px;height:24px}
+.map-zoom-controls button{display:grid;place-items:center;padding:0;line-height:0;box-sizing:border-box}
+.map-zoom-controls button .ui-icon{width:24px;height:24px}
+
+/* Keep the original coloured tiles legible over the aerial render. */
+.fair-map-world .map-point .map-marker-art{filter:drop-shadow(0 0 1px #f0eee4) drop-shadow(0 2px 3px #0009)}
+.map-page .fair-map-scroll .fair-map-world .map-point.is-selected .map-marker-art{filter:drop-shadow(0 0 3px #fff) drop-shadow(0 3px 4px #000b)}
+.map-page .fair-map-scroll .map-point:focus-visible{outline-color:var(--paper);box-shadow:0 0 0 5px var(--ink)}
+.map-page .fair-map-scroll{background:var(--paper)}
+.map-page .fair-map-scroll{height:clamp(420px,65svh,620px)}
