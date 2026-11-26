@@ -538,3 +538,5 @@ body.nologo #hud img{visibility:hidden}
 .obub{text-transform:uppercase;font-weight:800;flex-direction:column}.obub .obr{display:block;font-family:var(--f-scrib);font-weight:400;color:var(--red);font-size:1.18em;line-height:.95;letter-spacing:.01em}
 
 .dvd-stage.inv{background:#332e34!important}.dvd-stage{transition:background .12s}
+
+.dvd-txt{position:absolute;left:0;top:0;width:100%;height:100%;z-index:6;opacity:0;transition:opacity .25s ease;pointer-events:none}

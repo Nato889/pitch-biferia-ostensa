@@ -71,7 +71,44 @@
     var st=sl.querySelector('.dvd-stage'); if(!st) return;
     var r=dvdRun.get(st); if(r){ cancelAnimationFrame(r.raf); clearInterval(r.iv); (r.to||[]).forEach(clearTimeout); dvdRun.delete(st); }
     [].forEach.call(st.querySelectorAll('.gc.lit'),function(c){ c.classList.remove('lit'); });
-    st.classList.remove('inv'); var lg=st.querySelector('.dvd-logo'); if(lg){ lg.style.opacity='0'; if(lg.dataset.light) lg.src=lg.dataset.light; }
+    [].forEach.call(st.querySelectorAll('canvas.dvd-txt'),function(c){ c.parentNode.removeChild(c); }); st.classList.remove('inv'); var lg=st.querySelector('.dvd-logo'); if(lg){ lg.style.opacity='0'; if(lg.dataset.light) lg.src=lg.dataset.light; }
+  }
+
+  /* ---- pantalla 04 · al tercer choque del logo: el texto «Sabemos que cambiar duele…» en rojo sobre oscuro, repetido fila por fila, y una frase que se va marcando en blanco palabra por palabra ---- */
+  var DVD_TXT='Sabemos que cambiar duele. Por eso lo hacemos de a poco, de forma amable, sin ruido, sin molestar a los que ya estaban cómodos. Un cambio que no molesta a nadie es un cambio muy bien diseñado. Sabemos que la naturaleza no es un fondo para la foto. Por eso la ponemos en el fondo de la foto, bien cerquita, para que se vea que la respetamos. Sabemos que el planeta se acaba. Por eso hicimos un cartel muy grande que lo dice. Sabemos que consumir menos es la única salida. Por eso tenemos doscientos puestos para consumir mejor, que es consumir lo mismo con una etiqueta verde. Sabemos que lo local importa. Sabemos que lo justo importa. Sabemos tantas cosas que ya no nos queda tiempo para hacerlas. Nos preguntan si esto es un cambio o es una vidriera. Respondemos que es un cambio con vidriera, que es la forma moderna de cambiar. Nos preguntan quién queda afuera. Respondemos que afuera hace frío y adentro hay música. Nada de esto es casual. Cada color está elegido, cada frase está medida, cada silencio está calculado. Lo que no decimos lo cuidamos más que lo que decimos. Queremos que el cambio sea total. Queremos que sea ya. Queremos que sea lindo. Y si no puede ser las tres cosas, elegimos la que se ve mejor en la foto. Todo color de rosas. Todo bajo control. Todo editado. Si alguien nos pregunta dónde, le contamos lo lindo del lugar. Si alguien nos pregunta de quién, cambiamos de tema con una sonrisa. Si alguien insiste, tenemos un folleto. No hay contradicción. No hay nada que ocultar. No hay nada, salvo lo que no mostramos, y lo que no mostramos no cuenta, porque no está en la foto. Nosotros no somos una feria más. Lo repetimos porque cada tanto conviene repetirlo. Nosotros no somos una feria más. Nosotros hacemos lo que hay que hacer. Nos levantamos temprano, separamos los residuos, usamos materiales biodegradables y lo contamos en cada cartel para que se note de qué lado estamos. Sabemos que el cambio debe ser total, aunque cueste, aunque incomode, aunque no nos convenga. Sabemos que no alcanza con cambiar una bolsa. Sabemos que vivimos en un mundo especista, supremacista de lo humano, donde un animal es un recurso, un espectáculo o un decorado, y donde lo que no habla se usa, se mira de lejos o se aplaude cuando corre. Sabemos todo esto y lo decimos fuerte, con letra grande y fondo verde, para que nadie pueda decir que no lo dijimos. Nosotros no juzgamos a nadie. Nosotros señalamos, que es distinto. Todo lo que juzgamos lo hacemos con amor y con las mejores intenciones. Somos coherentes. Casi siempre. En lo que se ve. Lo demás es contexto, y el contexto no entra en el folleto. Hacemos esto, hacemos aquello, hacemos mucho. Si algo no cierra, es porque todavía no terminamos de explicarlo. Estamos del lado de los animales, de la tierra, del agua y de las generaciones futuras. Estamos del lado de todos, que es el lado más cómodo para estar. Cada vez que alguien duda, le sonreímos. Cada vez que alguien pregunta, le damos una bolsa de tela. Hacemos talleres de reparación, charlas sobre consumo, ferias de intercambio y una mesa donde todos pueden hablar, siempre que lleguen a la mesa y siempre que puedan pagar la entrada. Nosotros abrimos la puerta. Cuánto cuesta cruzarla es otro tema. Hablamos de futuro todo el tiempo. El presente es más difícil de explicar, así que lo dejamos para la letra chica, que por algo es chica.', DVD_FRASE='nosotros no somos una feria más';
+  function dvdTexto(st,run,v2){
+    var CF=v2?{bg:'#332e34',tx:'#000000',hl:'#fdff1a',wb:300,wh:900}:{bg:'#332e34',tx:'#000000',hl:'#fdff1a',wb:800,wh:800};   // 1.ª vez: rojo sobre oscuro, palabra en blanco · 2.ª vez: negro fino sobre claro, palabra en rojo y mucho más gruesa
+    var W=st.clientWidth,H=st.clientHeight; if(!W||!H) return;
+    var cv=document.createElement('canvas'); cv.className='dvd-txt'; cv.width=W; cv.height=H; st.appendChild(cv); run.cv=cv;
+    var ctx=cv.getContext('2d'), fs=Math.round(H/37), NR=Math.floor(H/(fs*1.12)), rh=H/NR;
+    var norm=function(t){ return t.toLowerCase().replace(/[.,;:¿?¡!]/g,''); };
+    var toks=DVD_TXT.toUpperCase().split(/\s+/), keys=toks.map(function(t){ return norm(t); }), n=toks.length, fr=DVD_FRASE.split(' '), j0=-1;
+    for(var q=0;q<n;q++){ var ok=true; for(var z=0;z<fr.length;z++) if(keys[(q+z)%n]!==fr[z]){ ok=false; break; } if(ok){ j0=q; } }
+    function pintar(nShown,zN){
+      ctx.fillStyle=CF.bg; ctx.fillRect(0,0,W,H);
+      var FB=CF.wb+' '+fs+'px "Barlow Semi Condensed",sans-serif', FH=CF.wh+' '+fs+'px "Barlow Semi Condensed",sans-serif'; ctx.font=FB; ctx.textBaseline='middle';
+      var wd=toks.map(function(t){ return ctx.measureText(t+' ').width; });
+      var hrow={}, xs=[.18,.40,.62,.30,.64,.46];
+      for(var i=0;i<fr.length;i++){ var r=Math.max(1,Math.round(NR*(.1+.8*i/(fr.length-1)))); hrow[r]={k:(j0+i)%n,x:W*xs[i%xs.length],i:i}; }
+      for(var r2=0;r2<NR;r2++){
+        var hr=hrow[r2], s, x0;
+        if(hr&&j0>=0){ var acc=0; s=hr.k; while(acc<hr.x){ s=(s-1+n)%n; acc+=wd[s]; } x0=hr.x-acc; }
+        else{ s=(r2*53+17)%n; x0=-((r2*29)%60); }
+        var x=x0, k=s, y=r2*rh+rh/2;
+        while(x<W){ var hot=hr&&j0>=0&&k===hr.k&&hr.i<nShown;
+          if(hot&&v2){ var sc=(hr.i===nShown-1)?(zN||1):2.1, fz=Math.round(fs*sc); ctx.font=CF.wh+' '+fz+'px "Barlow Semi Condensed",sans-serif'; var ww=ctx.measureText(toks[k]+' ').width;
+            ctx.fillStyle=CF.bg; ctx.fillRect(x-6,y-fz*.6,ww+2,fz*1.2); ctx.fillStyle=CF.hl; ctx.fillText(toks[k],x,y); x+=ww; }   /* 2.ª versión: la palabra marcada se agranda (zoom) y tapa el texto de atrás */
+          else{ ctx.font=hot?FH:FB; ctx.fillStyle=hot?CF.hl:CF.tx; ctx.fillText(toks[k],x,y); x+=hot?ctx.measureText(toks[k]+' ').width:wd[k]; }
+          k=(k+1)%n; }
+      }
+    }
+    var go=function(){
+      pintar(0); void cv.offsetWidth; cv.style.opacity='1';
+      for(var i=1;i<=fr.length;i++) (function(i){ [[0,1.25],[70,1.7],[140,2.1]].forEach(function(f){ run.to.push(setTimeout(function(){ pintar(i,f[1]); },700+i*430+f[0])); }); })(i);
+      run.to.push(setTimeout(function(){ cv.style.opacity='0'; },700+fr.length*430+1500));
+      run.to.push(setTimeout(function(){ if(cv.parentNode) cv.parentNode.removeChild(cv); run.cv=null; },700+fr.length*430+2000));
+    };
+    if(document.fonts&&document.fonts.load) Promise.all([document.fonts.load('300 '+fs+'px "Barlow Semi Condensed"'),document.fonts.load('800 '+fs+'px "Barlow Semi Condensed"'),document.fonts.load('900 '+fs+'px "Barlow Semi Condensed"')]).then(go,go); else go();
   }
   function startPhaseB(sl){
     var st=sl.querySelector('.dvd-stage'); if(!st||dvdRun.get(st)) return;
@@ -93,16 +130,15 @@
     /* logo: entra grande con rebote en el medio, se achica y rebota contra los bordes */
     var T0=performance.now(), W=0, H=0, ar=2430/460, x=0, y=0, U=.5, V=.5, su=0, sv=0, big=0, small=0, started=false;
     if(!logo.dataset.light) logo.dataset.light=logo.getAttribute('src'); var imD=new Image(); imD.src=logo.dataset.dark||'';
-    function cornerHit(){ var inv=st.classList.toggle('inv'); logo.src=inv?(logo.dataset.dark||logo.dataset.light):logo.dataset.light; }
+    function cornerHit(){ run.hits=(run.hits||0)+1; if(run.hits%3===0) dvdTexto(st,run,run.hits%6===0); var inv=st.classList.toggle('inv'); logo.src=inv?(logo.dataset.dark||logo.dataset.light):logo.dataset.light; }
     function meas(){ var r=st.getBoundingClientRect(); W=r.width; H=r.height; big=Math.min(W*.5,H*.7*ar); small=Math.min(W*.27,520*(W/1920)); }
     function easeOutBack(t){ var c1=1.9, c3=c1+1; return 1+c3*Math.pow(t-1,3)+c1*Math.pow(t-1,2); }
     meas(); logo.style.opacity='1';
     (function f(now){
       var t=(now-T0)/1000; meas();
       var w, px, py;
-      if(t<1.1){ var k=easeOutBack(Math.min(1,t/1.1)); w=big*Math.max(.001,k); px=(W-w)/2; py=(H-w/ar)/2; }
-      else if(t<2.9){ w=big; px=(W-w)/2; py=(H-w/ar)/2; }
-      else if(t<3.8){ var u=(t-2.9)/.9; var e=u<.5?2*u*u:1-Math.pow(-2*u+2,2)/2; w=big+(small-big)*e; px=(W-w)/2; py=(H-w/ar)/2; }
+      if(t<.7){ var k=easeOutBack(Math.min(1,t/.7)); w=big*Math.max(.001,k); px=(W-w)/2; py=(H-w/ar)/2; }
+      else if(t<1.5){ var u=(t-.7)/.8; var e=u<.5?2*u*u:1-Math.pow(-2*u+2,2)/2; w=big+(small-big)*e; px=(W-w)/2; py=(H-w/ar)/2; }
       else{
         w=small; var h=w/ar;
         var Rx=Math.max(1,W-w), Ry=Math.max(1,H-h);
@@ -111,7 +147,7 @@
         U+=su*dt; V+=sv*dt; var fx=false, fy=false;
         if(U<=0){ U=0; su=Math.abs(su); fx=true; } else if(U>=1){ U=1; su=-Math.abs(su); fx=true; }
         if(V<=0){ V=0; sv=Math.abs(sv); fy=true; } else if(V>=1){ V=1; sv=-Math.abs(sv); fy=true; }
-        if(fx||fy) cornerHit();   // cada vez que golpea una pared (o una punta) se invierten los colores
+        if((fx||fy)&&now-(run.cl||0)>350){ run.cl=now; cornerHit(); }   // cada vez que golpea una pared (o una punta) se invierten los colores
         x=U*Rx; y=V*Ry;
         px=x; py=y;
       }
