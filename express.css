@@ -536,3 +536,5 @@ body.nologo #hud img{visibility:hidden}
 @keyframes kcyc7{0%{opacity:0;scale:1.12}1.5%{opacity:1}12%{opacity:1;scale:1}14%,100%{opacity:0;scale:1}}.slide.on .cyc7>*{animation-name:kcyc7}
 
 .obub{text-transform:uppercase;font-weight:800;flex-direction:column}.obub .obr{display:block;font-family:var(--f-scrib);font-weight:400;color:var(--red);font-size:1.18em;line-height:.95;letter-spacing:.01em}
+
+.dvd-stage.inv{background:#332e34!important}.dvd-stage{transition:background .12s}
